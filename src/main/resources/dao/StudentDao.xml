@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+
+    namespace:命名空间
+              不同的mapper映射文件使用namespace来做区分
+              不同的mapper映射文件所使用的namespace的命名不允许出现重复
+
+    使用命名空间.sqlId的形式来找到我们想要执行的sql语句
+
+     test1.getById1
+
+-->
+<!--
+    select 中使用id 和 resultType 属性
+    其他INSERT update 和 delete 中要 id属性
+-->
+<mapper namespace="dao.StudentDao">
+    <select id="getById" parameterType="java.lang.String" resultType="domain.Student">
+
+        select * from tb_student where id=#{id}
+
+    </select>
+
+    <insert id="add" >
+        insert into tb_student (id,name) values (#{id},#{name})
+    </insert>
+    <select id="selectAll" resultType="domain.Student">
+        select * from tb_student
+    </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
